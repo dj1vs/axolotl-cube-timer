@@ -16,6 +16,8 @@ Installation dependencies:
 1. `conan2`
 2. `cmake>=3.16`
 
+---
+
 1. Download source code repository:
 ```bash
 git clone https://github.com/dj1vs/axolotl-cube-timer
