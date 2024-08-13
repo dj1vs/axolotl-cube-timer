@@ -23,7 +23,7 @@ void ScrambleComponentBase::load_scramble()
     m_scramble = scramble_manager.get_scramble(m_puzzle);
 }
 
-void ScrambleComponentBase::set_puzzle(const std::string &puzzle)
+void ScrambleComponentBase::set_puzzle(puzzle::PuzzleType puzzle)
 {
     m_puzzle = puzzle;
 

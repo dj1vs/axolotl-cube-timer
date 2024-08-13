@@ -9,6 +9,7 @@
 #pragma once
 
 #include "scramble_manager.hpp"
+#include "puzzle.hpp"
 
 class ScrambleComponentBase : public ftxui::ComponentBase
 {
@@ -17,16 +18,16 @@ public:
 
     void load_scramble();
 
-    void set_puzzle(const std::string &puzzle);
+    void set_puzzle(puzzle::PuzzleType puzzle);
 
-    std::string get_puzzle() const {return m_puzzle;};
+    puzzle::PuzzleType get_puzzle() const {return m_puzzle;};
 public:
     bool OnEvent(ftxui::Event) override;
     ftxui::Element Render() override;    
 private:
     ScrambleManager scramble_manager;
 
-    std::string m_puzzle = "three";
+    puzzle::PuzzleType m_puzzle = puzzle::PuzzleType::_3x3;
     std::string m_scramble;
 };
 

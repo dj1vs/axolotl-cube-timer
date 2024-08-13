@@ -16,6 +16,7 @@
 #include <stdexcept>
 #include <string>
 #include <array>
+#include <map>
 #include <sstream>
 
 // C standard headers

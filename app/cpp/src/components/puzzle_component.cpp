@@ -10,7 +10,13 @@
 
 PuzzleComponentBase::PuzzleComponentBase()
 {
-    m_dropdown = ftxui::Dropdown(ftxui::ConstStringListRef(&puzzles), &selected);
+    static std::vector <std::string> puzzles_strings;
+    for (const auto& puzzle : puzzles)
+    {
+        puzzles_strings.push_back(puzzle::readable_puzzle_str.at(puzzle));
+    }
+
+    m_dropdown = ftxui::Dropdown(ftxui::ConstStringListRef(&puzzles_strings), &selected);
 }
 
 bool PuzzleComponentBase::OnEvent(ftxui::Event e)

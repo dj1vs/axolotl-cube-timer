@@ -8,12 +8,14 @@
  */
 #pragma once
 
+#include "puzzle.hpp"
+
 class ScrambleManager
 {
 public:
     ScrambleManager();
 
-    std::string get_scramble(const std::string &puzzle, uint8_t amount = 1);
+    std::string get_scramble(puzzle::PuzzleType puzzle = puzzle::PuzzleType::_3x3, uint8_t amount = 1);
 
     void set_tnoodle_path(const std::string &path);
 private:

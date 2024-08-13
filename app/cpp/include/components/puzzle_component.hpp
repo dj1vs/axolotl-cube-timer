@@ -8,36 +8,34 @@
  */
 #pragma once
 
+#include "puzzle.hpp"
+
 class PuzzleComponentBase : ftxui::ComponentBase
 {
 public:
     PuzzleComponentBase();
 
-    std::string get_puzzle() const {return puzzles[selected];}
+    puzzle::PuzzleType get_puzzle() const {return puzzles[selected];}
 public:
     bool OnEvent(ftxui::Event) override;
     ftxui::Element Render() override;
 private:
     ftxui::Component m_dropdown;
-    const std::vector <std::string> puzzles = 
+    const std::vector <puzzle::PuzzleType> puzzles = 
     {
-        "two",
-        "three",
-        "four",
-        "four_fast",
-        "five",
-        "six",
-        "seven",
-        "three_ni",
-        "four_ni",
-        "five_ni",
-        "three_fm",
-        "pyra",
-        "sq1",
-        "mega",
-        "clock",
-        "skewb"
+        puzzle::PuzzleType::_2x2,
+        puzzle::PuzzleType::_3x3,
+        puzzle::PuzzleType::_4x4,
+        puzzle::PuzzleType::_5x5,
+        puzzle::PuzzleType::_6x6,
+        puzzle::PuzzleType::_7x7,
+        puzzle::PuzzleType::Pyraminx,
+        puzzle::PuzzleType::Square1,
+        puzzle::PuzzleType::Megaminx,
+        puzzle::PuzzleType::Clock,
+        puzzle::PuzzleType::Skewb
     };
+    
     int selected = 1;
 };
 

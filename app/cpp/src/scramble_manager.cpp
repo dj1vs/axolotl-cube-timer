@@ -15,12 +15,12 @@ ScrambleManager::ScrambleManager()
     read_env_config();
 }
 
-std::string ScrambleManager::get_scramble(const std::string &puzzle, uint8_t amount)
+std::string ScrambleManager::get_scramble(puzzle::PuzzleType puzzle, uint8_t amount)
 {
-    if (!amount || !puzzle.length()) return std::string();
+    if (!amount) return std::string();
 
-    std::string cmd = m_tnoodle_path + " scramble -p " + puzzle
-                          + " -c " + std::to_string(amount);
+    std::string cmd = m_tnoodle_path + " scramble -p " + puzzle::tnoodle_puzzle_str.at(puzzle);
+    if (amount > 1) cmd += " -c " + std::to_string(amount);
 
     return cli::exec(cmd.c_str());
 }
