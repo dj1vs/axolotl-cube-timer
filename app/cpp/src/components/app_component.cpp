@@ -28,6 +28,33 @@ ApplicationComponentBase::ApplicationComponentBase(ftxui::ScreenInteractive* scr
             std::this_thread::sleep_for(0.001s);
         }
     });
+
+    std::string axolotl_str =
+    R"##(
+    ⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡇⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠸⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡇⠀⠀⠀⠀⠀⠀
+    ⠀⠀⠀⢀⣀⣠⡈⠻⣿⣷⡄⢲⣶⣦⣤⣤⣤⣀⡀⠀⠸⢿⡿⠁⠀⠀⢀⣀⠄⠀
+    ⠀⠀⣈⣉⣉⣉⣛⠂⠈⠻⣿⠈⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣄⠀⢿⣿⠟⠋⠀⠀
+    ⠀⢠⣌⠻⢿⣿⣿⣿⣦⡀⠉⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⣤⣤⠆⠀
+    ⠀⢸⣿⣷⣦⣤⡌⠉⠙⠻⠆⢸⣿⣿⣿⠟⠻⣿⣿⣿⣿⣿⡿⠋⢙⣇⠘⠋⠀⠀
+    ⠀⠸⠿⠛⢉⣠⣤⣶⣶⣦⠄⠈⢿⣿⣿⣦⣤⣼⣿⣿⣿⣿⣿⣶⣿⡟⠀⠀⠀⠀
+    ⠀⠀⠀⠙⠛⠛⣉⣉⣉⡁⠀⠀⠀⠙⠻⠿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀
+    ⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⡿⠖⠀⠀⠀⠀⠀⠀⠈⠉⠉⢀⣀⣤⣴⡀⠀⠀⠀⠀
+    ⠀⠀⢰⣿⣿⣿⣿⣿⡿⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠺⣿⣿⣿⣿⣷⠀⠀⠀⠀
+    ⠀⠀⣼⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠿⢿⣿⣿⣷⣄⠀⠀
+    ⠀⠈⠉⠹⣿⠿⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠀⠀⠀
+    ⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    )##";
+    
+    std::vector <ftxui::Element> axolotl_text_lines;
+    std::stringstream ax_ss(axolotl_str);
+    std::string text_line;
+    while (getline(ax_ss, text_line, '\n'))
+    {
+        axolotl_text_lines.push_back(ftxui::text(text_line));
+    }
+    axolotl = ftxui::vbox(axolotl_text_lines);
+
 }
 
 ApplicationComponentBase::~ApplicationComponentBase()
@@ -85,6 +112,12 @@ ftxui::Element ApplicationComponentBase::Render()
             hbox({
                 filler(),
                 text("Axolotol Cube Timer"),
+                filler(),
+            }),
+            filler(),
+            hbox({
+                filler(),
+                axolotl,
                 filler(),
             }),
             filler(),

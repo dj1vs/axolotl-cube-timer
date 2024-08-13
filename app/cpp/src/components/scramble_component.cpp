@@ -8,8 +8,6 @@
  */
 #include "components/scramble_component.hpp"
 
-#include "scramble.hpp"
-
 ScrambleComponentBase::ScrambleComponentBase()
 {
     load_scramble();
@@ -22,7 +20,7 @@ ftxui::Element ScrambleComponentBase::Render()
 
 void ScrambleComponentBase::load_scramble()
 {
-    m_scramble = scramble::get_scramble(m_puzzle);
+    m_scramble = scramble_manager.get_scramble(m_puzzle);
 }
 
 void ScrambleComponentBase::set_puzzle(const std::string &puzzle)

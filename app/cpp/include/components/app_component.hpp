@@ -27,6 +27,8 @@ private:
     TimerComponent m_timer_component;
     PuzzleComponent m_puzzle_component;
 
+    ftxui::Element axolotl;
+
     bool screen_updating = true;
     std::thread screen_update_thread;
 };

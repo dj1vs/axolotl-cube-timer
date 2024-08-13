@@ -8,6 +8,8 @@
  */
 #pragma once
 
+#include "scramble_manager.hpp"
+
 class ScrambleComponentBase : public ftxui::ComponentBase
 {
 public:
@@ -22,6 +24,8 @@ public:
     bool OnEvent(ftxui::Event) override;
     ftxui::Element Render() override;    
 private:
+    ScrambleManager scramble_manager;
+
     std::string m_puzzle = "three";
     std::string m_scramble;
 };

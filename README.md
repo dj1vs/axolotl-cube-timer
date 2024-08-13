@@ -41,4 +41,13 @@ For `axolotl-cube-timer` you can use the following shortcuts:
 - `Space` - start/end timer
 - `q` - quit
 
-Managing current puzzle via dropbox is intuitive.
+Managing current puzzle via dropbox is trivial.
+
+## Configuration
+
+- If you have `tnoodle` installed in custom path, you can specify it using environment variable `TNOODLE_PATH`:
+
+```bash
+export TNOODLE_PATH=/opt/apps/tnoodle
+axolotl-cube-timer
+```
