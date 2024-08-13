@@ -1,6 +1,6 @@
 /**
  * @file scramble_manager.cpp
- * @author Трифонов Д.А. (trifonov_da@nikiet.ru)
+ * @author dj1vs
  * @brief 
  * @date 2024-08-13
  * 
@@ -13,6 +13,7 @@
 ScrambleManager::ScrambleManager()
 {
     read_env_config();
+
 }
 
 std::string ScrambleManager::get_scramble(puzzle::PuzzleType puzzle, uint8_t amount)

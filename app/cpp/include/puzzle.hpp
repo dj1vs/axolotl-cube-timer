@@ -1,6 +1,6 @@
 /**
  * @file puzzle.hpp
- * @author Трифонов Д.А. (trifonov_da@nikiet.ru)
+ * @author 
  * @brief 
  * @date 2024-08-13
  * 

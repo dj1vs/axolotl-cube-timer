@@ -1,6 +1,6 @@
 /**
  * @file scramble_manager.hpp
- * @author Трифонов Д.А. (trifonov_da@nikiet.ru)
+ * @author dj1vs
  * @brief 
  * @date 2024-08-13
  * 
@@ -22,4 +22,10 @@ private:
     void read_env_config();
 private:
     std::string m_tnoodle_path = "tnoodle";
+
+    static constexpr const uint8_t BUF_SIZE = 20; 
+    std::map <puzzle::PuzzleType, std::array <std::string, BUF_SIZE>> buf_scrambles;
+    std::map <puzzle::PuzzleType, uint8_t> buf_position;
+    std::map <puzzle::PuzzleType, bool> buf_loaded;
+    std::map <puzzle::PuzzleType, std::thread*> buf_load_thread;
 };
