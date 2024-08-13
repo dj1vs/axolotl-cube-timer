@@ -2,7 +2,9 @@
 
 CLI Speedcubing timer built with C++/FTXUI
 
-![](https://raw.githubusercontent.com/dj1vs/axolotl-cube-timer/4b3271af055d6a462aae6b27e40fdca6fe691e92/assets/screenshot.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dj1vs/axolotl-cube-timer/4b3271af055d6a462aae6b27e40fdca6fe691e92/assets/screenshot.png"/>
+</p>
 
 ## Dependencies
 
