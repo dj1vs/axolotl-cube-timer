@@ -15,7 +15,7 @@ ScrambleComponentBase::ScrambleComponentBase()
 
 ftxui::Element ScrambleComponentBase::Render()
 {
-    return ftxui::text(m_scramble);
+    return ftxui::paragraph(m_scramble);
 }
 
 void ScrambleComponentBase::load_scramble()
