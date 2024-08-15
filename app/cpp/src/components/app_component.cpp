@@ -23,7 +23,7 @@ ApplicationComponentBase::ApplicationComponentBase(ftxui::ScreenInteractive* scr
 
             if (this->m_timer_component->is_ticking())
             {
-                this->m_timer_component->OnEvent(ftxui::Event::Custom);
+                this->m_screen->PostEvent(ftxui::Event::Custom);
             }
 
             std::this_thread::sleep_for(0.001s);
