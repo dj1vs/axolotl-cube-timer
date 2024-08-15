@@ -25,6 +25,8 @@ private:
     bool m_ticking = false;
     std::string m_status = "0";
     std::chrono::steady_clock::time_point m_start;
+
+friend class ApplicationComponentBase;
 };
 
 using TimerComponent = std::shared_ptr<TimerComponentBase>;

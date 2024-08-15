@@ -15,17 +15,34 @@ ApplicationComponentBase::ApplicationComponentBase(ftxui::ScreenInteractive* scr
     m_timer_component = std::make_shared<TimerComponentBase>();
     m_puzzle_component = std::make_shared<PuzzleComponentBase>();
 
-    screen_update_thread = std::thread([this]
+    timer_render_thread = std::thread([this]
     {
-        while (this->screen_updating)
+        while (this->timer_updating)
         {
             using namespace std::chrono_literals;
 
             if (this->m_timer_component->is_ticking())
             {
-                this->m_screen->PostEvent(ftxui::Event::Custom);
+                this->m_timer_component->OnEvent(ftxui::Event::Custom);
             }
+
             std::this_thread::sleep_for(0.001s);
+        }
+    });
+
+    scramble_update_thread = std::thread([this]
+    {
+        while (this->scramble_updating)
+        {
+            using namespace std::chrono_literals;
+
+            if (this->m_scramble_component->is_empty.load())
+            {
+                this->m_scramble_component->load_scramble();
+                this->m_scramble_component->Render();
+            }
+            
+            std::this_thread::sleep_for(0.5s);
         }
     });
 
@@ -59,8 +76,11 @@ ApplicationComponentBase::ApplicationComponentBase(ftxui::ScreenInteractive* scr
 
 ApplicationComponentBase::~ApplicationComponentBase()
 {
-    screen_updating = false;
-    screen_update_thread.join();
+    timer_updating = false;
+    scramble_updating = false;
+
+    timer_render_thread.join();
+    scramble_update_thread.join();
 }
 
 bool ApplicationComponentBase::OnEvent(ftxui::Event event)

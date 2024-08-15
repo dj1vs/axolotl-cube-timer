@@ -29,8 +29,10 @@ private:
 
     ftxui::Element axolotl;
 
-    bool screen_updating = true;
-    std::thread screen_update_thread;
+    bool timer_updating = true;
+    bool scramble_updating = true;
+    std::thread timer_render_thread;
+    std::thread scramble_update_thread;
 };
 
 using ApplicationComponent = std::shared_ptr<ApplicationComponentBase>;

@@ -13,12 +13,26 @@
 class ScrambleThread
 {
 public:
-    ScrambleThread();
+    struct ThreadConfig
+    {
+        uint8_t scrambles_amount;
+        std::string tnoodle_path;
+        puzzle::PuzzleType puzzle_type;
+    };
+
+    ScrambleThread(const ThreadConfig &t_conf);
+    ~ScrambleThread();
+
+    std::vector <std::string> get_scrambles() const {return m_scrambles;}
+
+    bool is_running() const {return m_running.load();}
 private:
+    std::vector<std::string> m_scrambles;
+
+    volatile std::atomic_bool m_running;
     std::thread m_thread;
-    std::vector<std::string> *m_destination;
-    uint8_t m_target_amount;
+    uint8_t m_scrambles_amount;
     std::string m_tnoodle_path = "tnoodle";
     
-    puzzle::PuzzleType puzzle_type;
+    puzzle::PuzzleType m_puzzle_type;
 };
