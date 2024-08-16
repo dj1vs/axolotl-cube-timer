@@ -39,7 +39,7 @@ ApplicationComponentBase::ApplicationComponentBase(ftxui::ScreenInteractive* scr
             if (this->m_scramble_component->is_empty.load())
             {
                 this->m_scramble_component->load_scramble();
-                this->m_scramble_component->Render();
+                this->m_screen->PostEvent(ftxui::Event::Custom);
             }
             
             std::this_thread::sleep_for(0.5s);

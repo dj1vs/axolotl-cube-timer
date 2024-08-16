@@ -53,7 +53,9 @@ std::string ScrambleManager::get_scramble(puzzle::PuzzleType puzzle)
 
     // here we have to load new scrambles
 
+    std::cout << "scrambles ended\n";
     delete buf_load_thread[puzzle];
+    std::cout << "starting new thread\n";
     buf_load_thread[puzzle] = new ScrambleThread
     (
         {
@@ -65,13 +67,7 @@ std::string ScrambleManager::get_scramble(puzzle::PuzzleType puzzle)
     
     buf_position[puzzle] = 0;
 
-    while (!buf_load_thread[puzzle]->is_running())
-    {
-        // wait until the scrambles are loaded
-        std::this_thread::yield();
-    }
-
-    return buf_load_thread[puzzle]->get_scrambles()[buf_position[puzzle]++]; 
+    return "";
 }
 
 uint8_t ScrambleManager::availalbe_scrambles(puzzle::PuzzleType puzzle) const
@@ -81,7 +77,7 @@ uint8_t ScrambleManager::availalbe_scrambles(puzzle::PuzzleType puzzle) const
         return 0;
     }
 
-    return buf_load_thread.at(puzzle)->get_scrambles().size() - buf_position.at(puzzle);
+    return buf_load_thread.at(puzzle)->get_scrambles().size() - buf_position.at(puzzle) + 1;
 }
 
 void ScrambleManager::set_tnoodle_path(const std::string &path)

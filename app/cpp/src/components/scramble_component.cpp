@@ -32,6 +32,10 @@ void ScrambleComponentBase::load_scramble()
     {
         is_empty.store(false);
         m_scramble = scramble_manager.get_scramble(m_puzzle);
+        if (!m_scramble.length())
+        {
+            is_empty.store(true);
+        }
     }
     else
     {

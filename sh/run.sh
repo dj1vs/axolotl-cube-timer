@@ -1,3 +1,3 @@
 #!/bin/bash
 
-TNOODLE_PATH=tnoodle build/axolotl-cube-timer
+TNOODLE_PATH=/opt/tnoodle-cli/bin/tnoodle build/axolotl-cube-timer
