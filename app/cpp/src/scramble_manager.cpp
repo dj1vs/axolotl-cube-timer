@@ -53,9 +53,7 @@ std::string ScrambleManager::get_scramble(puzzle::PuzzleType puzzle)
 
     // here we have to load new scrambles
 
-    std::cout << "scrambles ended\n";
     delete buf_load_thread[puzzle];
-    std::cout << "starting new thread\n";
     buf_load_thread[puzzle] = new ScrambleThread
     (
         {

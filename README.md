@@ -8,7 +8,7 @@ CLI Speedcubing timer built with C++/FTXUI
 
 ## Dependencies
 
-- [tnoodle-cli](https://github.com/SpeedcuberOSS/tnoodle-cli) for WCA-compliant scrambles generation
+- [tnoodle-cli](https://github.com/SpeedcuberOSS/tnoodle-cli) for WCA-c ompliant scrambles generation
 
 ## Installation
 
