@@ -12,6 +12,9 @@
 #include "timer_component.hpp"
 #include "puzzle_component.hpp"
 
+/**
+ * @brief Основное окно отображения UI - наследование от ftxui::ComponentBase
+ */
 class ApplicationComponentBase : public ftxui::ComponentBase
 {
 public:

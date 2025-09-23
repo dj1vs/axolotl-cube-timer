@@ -10,6 +10,9 @@
 
 #include "puzzle.hpp"
 
+/**
+ * @brief Поток загрузки скрамбла из tnoodle
+ */
 class ScrambleThread
 {
 public:

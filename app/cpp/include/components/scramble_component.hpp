@@ -1,6 +1,6 @@
 /**
- * @file scramble_renderer.hpp
- * @author dj1vs 
+ * @file scramble_component.hpp
+ * @author dj1vs
  * @brief 
  * @date 2024-08-11
  * 
@@ -11,6 +11,9 @@
 #include "scramble_manager.hpp"
 #include "puzzle.hpp"
 
+/**
+ * @brief Класс по отображению текущего скрамбла - наследование от ftxui::ComponentBases
+ */
 class ScrambleComponentBase : public ftxui::ComponentBase
 {
 public:

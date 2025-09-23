@@ -53,3 +53,11 @@ Managing current puzzle via dropbox is trivial.
 export TNOODLE_PATH=/opt/apps/tnoodle
 axolotl-cube-timer
 ```
+
+## Doxygen documentation
+
+```bash
+doxygen doxconf.txt
+```
+
+Doxygen documentation will be generated in `doxygen` folder.

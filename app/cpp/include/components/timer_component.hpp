@@ -8,6 +8,9 @@
  */
 #pragma once
 
+/**
+ * @brief Класс по отображению таймера - наследование от ftxui::ComponentBase
+ */
 class TimerComponentBase : public ftxui::ComponentBase
 {
 public:
